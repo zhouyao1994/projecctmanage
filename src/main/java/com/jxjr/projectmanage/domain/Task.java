@@ -1,13 +1,17 @@
 package com.jxjr.projectmanage.domain;
 
-import org.springframework.data.annotation.Id;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Task {
+  public Task() {
+  }
+
   @Id
   @GeneratedValue(strategy= GenerationType.AUTO)
   private Long id;
@@ -19,14 +23,12 @@ public class Task {
   private boolean isMaoYianTest;
   private String dutyPerson;
 
-  public Task(String taskTitle, String taskStage, String priorDutyGroup, String devGroup, boolean isRequestTest, boolean isMaoYianTest, String dutyPerson) {
-    this.taskTitle = taskTitle;
-    this.taskStage = taskStage;
-    this.priorDutyGroup = priorDutyGroup;
-    this.devGroup = devGroup;
-    this.isRequestTest = isRequestTest;
-    this.isMaoYianTest = isMaoYianTest;
-    this.dutyPerson = dutyPerson;
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getTaskTitle() {
